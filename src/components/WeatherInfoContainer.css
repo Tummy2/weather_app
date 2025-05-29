@@ -13,32 +13,30 @@
     border-radius: 20px;
     padding: 20px;
     width: 700px;
-    height: 650px; 
+    height: 650px;
     margin: 20px auto;
     background-color: var(--offWhite);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Light mode styles */
 .light-mode .weather-info-container {
-    background-color: var(--offWhite); /* Light background */
-    color: var(--darkGrey); /* Text color for light mode */
+    background-color: var(--offWhite);
+    color: var(--darkGrey);
 }
 
-/* Dark mode styles */
 .dark-mode .weather-info-container {
-    background-color: var(--darkGrey); /* Dark background */
-    color: var(--offWhite); /* Text color for dark mode */
+    background-color: var(--darkGrey);
+    color: var(--offWhite);
 }
 
 .today-stuff {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 15px; 
+    gap: 15px;
     width: 100%;
-    height: 55%; 
-    padding: 15px; 
+    height: 55%;
+    padding: 15px;
     background-color: white;
     border: 1px solid var(--borders);
     border-radius: 10px;
@@ -50,12 +48,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px; 
+    padding: 20px;
     border: 1px solid var(--borders);
     border-radius: 10px;
     background-color: var(--offWhite);
     color: var(--darkGrey);
-    font-size: 1rem; 
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -64,8 +62,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 30%; 
-    padding: 15px; 
+    height: 30%;
+    padding: 15px;
     background-color: white;
     border: 1px solid var(--borders);
     border-radius: 10px;
@@ -78,78 +76,110 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 140px; 
-    height: 140px; 
+    width: 140px;
+    height: 140px;
     border: 1px solid var(--borders);
     border-radius: 10px;
     background-color: var(--offWhite);
     color: var(--darkGrey);
-    font-size: 1rem; 
+    font-size: 1rem;
     text-align: center;
 }
 
 .today-stuff div img {
-    width: 50px; 
-    height: 50px; 
-    margin-bottom: 5px; 
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
     background-color: transparent !important;
     display: block;
 }
 
 .unit-toggle {
     display: flex;
-    justify-content: space-between; /* Space groups to the left and right */
+    justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure it spans the full width of the container */
-    margin-bottom: 15px; /* Add spacing below the button group */
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .unit-buttons {
     display: flex;
-    gap: 10px; /* Add spacing between the "Imperial" and "Metric" buttons */
+    gap: 10px;
 }
 
 .theme-button {
     display: flex;
-    justify-content: flex-end; /* Align the button to the right */
+    justify-content: flex-end;
 }
 
 .unit-toggle button {
     padding: 10px 20px;
     border: 1px solid var(--borders);
-    border-radius: 30px; /* Rounded corners */
+    border-radius: 30px;
     background-color: white;
     color: var(--darkGrey);
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    max-width: 150px; /* Limit the button width */
+    max-width: 150px;
     text-align: center;
 }
 
-/* Hover styles for light mode */
 .light-mode .unit-toggle button:hover {
-    background-color: #555; /* Light blue for light mode */
+    background-color: #555;
     color: white;
     border: 1px solid var(--darkGrey);
 }
 
-/* Hover styles for dark mode */
 .dark-mode .unit-toggle button:hover {
-    background-color: #d3d3d3; /* Purple for dark mode */
-    /* color: white; */
-    border: 1px solid var(--darkGrey); /* Dark purple border */
+    background-color: #d3d3d3;
+    border: 1px solid var(--darkGrey);
 }
 
-/* Dark mode styles */
 .dark-mode .today-stuff {
-    background-color: rgb(20, 20, 20); /* Black background for dark mode */
-    color: var(--offWhite); /* Light text for contrast */
-    border: 1px solid var(--offWhite); /* Light border for visibility */
+    background-color: rgb(20, 20, 20);
+    color: var(--offWhite);
+    border: 1px solid var(--offWhite);
 }
 
 .dark-mode .forcasted-stuff {
-    background-color: rgb(20, 20, 20); /* Black background for dark mode */
-    color: var(--offWhite); /* Light text for contrast */
-    border: 1px solid var(--offWhite); /* Light border for visibility */
+    background-color: rgb(20, 20, 20);
+    color: var(--offWhite);
+    border: 1px solid var(--offWhite);
+}
+
+@media (max-width: 768px) {
+    .weather-info-container {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .today-stuff {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .forcasted-stuff {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .forcasted-stuff .day {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .today-stuff {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .forcasted-stuff .day {
+        width: 80%;
+        height: auto;
+    }
 }
