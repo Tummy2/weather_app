@@ -10,9 +10,17 @@ export default function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [currentForecast, setCurrentForecast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
-  const toggleTheme = () => setIsDarkMode((prevMode) => !prevMode);
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("theme", newMode ? "dark" : "light");
+      return newMode;
+    });
+  };
 
   async function handleNewCity(formData) {
     const newCity = formData.get("city");
