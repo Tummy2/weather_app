@@ -1,0 +1,161 @@
+:root {
+    --offWhite: #dfe4e9;
+    --darkGrey: #333;
+    --borders: #ccc;
+    --weatherDark: url("../weatherDark.png");
+    --weatherLight: url("../weatherLight.png");
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.search-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--borders);
+    padding: 10px 20px;    
+    border-radius: 50px;     
+    width: 500px;     
+    height: 100px;     
+    margin-top: 50px;
+    background-color: var(--offWhite);
+}
+
+/* Light mode styles */
+.light-mode .search-bar-container {
+    background-color: var(--offWhite); /* Light background */
+    color: var(--darkGrey); /* Text color for light mode */
+}
+
+/* Dark mode styles */
+.dark-mode .search-bar-container {
+    background-color: var(--darkGrey); /* Dark background */
+    color: var(--offWhite); /* Text color for dark mode */
+}
+
+.city-search-bar {
+    display: flex;
+    gap: 12px;
+}
+
+.theme-toggle-button {
+    padding: 0; /* Remove extra padding to prevent size increase */
+    border: 1px solid var(--borders);
+    border-radius: 30px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+}
+
+.theme-toggle-button img.theme-icon {
+    width: 24px; /* Set a fixed width for the image */
+    height: 24px; /* Set a fixed height for the image */
+    object-fit: contain; /* Ensure the image scales properly */
+}
+
+/* Hover styles */
+.theme-toggle-button:hover {
+    background-color: #555; /* Light greyish color */
+    border: 1px solid var(--darkGrey); /* Keep the border consistent */
+}
+
+/* Dark mode styles */
+.dark-mode .theme-toggle-button {
+    background-color: white;
+    border: 1px solid #555;
+}
+
+.dark-mode .theme-toggle-button:hover {
+    background-color: #d3d3d3; /* Slightly lighter grey for dark mode */
+    border: 1px solid #333; /* Keep the border consistent */
+}
+
+.city-search-bar input {
+    width: 100%; /* Allow the input to take up all available space */
+    max-width: 600px; /* Increase the maximum width */
+    padding: 10px 14px; /* Adjust padding for better spacing */
+    border: 1px solid var(--borders);
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    color: var(--darkGrey);
+    background-color: rgb(255, 255, 255);
+}
+
+.city-search-bar button {
+    padding: 10px 20px;
+    border: 1px solid var(--borders);
+    border-radius: 30px;
+    background-color: white;
+    color: var(--darkGrey);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, border 0.2s;
+}
+
+body {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: background-image 0.3s ease;
+}
+
+.light-mode {
+    background-image: var(--weatherLight);
+}
+
+.dark-mode {
+    background-image: var(--weatherDark);
+}
+
+.light-mode .city-search-bar button:hover {
+    background-color: #555;
+    color: white;
+    border: 1px solid var(--darkGrey);
+}
+
+.dark-mode .city-search-bar button:hover {
+    background-color: #d3d3d3; 
+    /* color: white; */
+    border: 1px solid var(--darkGrey);
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--borders);
+    border-radius: 20px;
+    padding: 20px;
+    width: 700px;
+    height: 650px; 
+    margin: 20px auto;
+    background-color: var(--offWhite);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 2rem; /* Increase font size */
+    color: var(--darkGrey); /* Ensure high contrast */
+    text-align: center; /* Center the text */
+}
+
+.dark-mode .loading-indicator {
+    background-color: #333; /* Dark background */
+    color: white; /* White text for contrast */
+    border: 1px solid #555; /* Slightly lighter border for visibility */
+}
